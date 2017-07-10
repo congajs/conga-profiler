@@ -1,0 +1,12 @@
+{% extends 'conga-profiler:layout.html.twig' %}
+
+{% block content_header %}
+    <h2>Conga Profiler Dashboard</h2>
+{% endblock content_header %}
+
+{% block content %}
+    <div style="white-space:nowrap">
+        <p>Last {{ requests.length }} request{% if requests.length != 1 %}s{% endif %}.</p>
+        {% include 'conga-profiler:DashboardController/partials/requestTable' with {requests: requests} %}
+    </div>
+{% endblock content %}

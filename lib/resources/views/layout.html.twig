@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ params.profiler_title }}</title>
+
+    <link rel="icon" href="/bundles/conga-profiler/img/favicon.ico" />
+
+    {% assets "css", "/_profiler/css/profiler.css", [
+        "/bundles/conga-profiler/css/profiler.css",
+        "/bundles/conga-profiler/css/config.css",
+        "/bundles/conga-profiler/css/stopwatch.css"
+    ] %}
+        <link rel="stylesheet" href="{{ url }}" />
+    {% endassets %}
+
+    {% assets "js", "/_profiler/js/profiler.js", [
+        "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.min.js",
+        "/bundles/conga-profiler/js/config.js",
+        "/bundles/conga-profiler/js/stopwatch.js"
+    ] %}
+        <script type="text/javascript" src="{{ url }}"></script>
+    {% endassets %}
+</head>
+<body>
+
+    {% block main %}
+        <main id="profiler">
+
+            <div class="body-content">
+                {% block body %}
+                    {% block sidebar %}
+                        <section id="sidebar">
+                            {% block header %}
+                                <header>
+                                    {% block header_content %}
+                                        <div class="content">
+                                            <h1>
+                                                <a href="/_profiler/dashboard">
+                                                    <img src="/bundles/conga-profiler/img/conga.png" alt="CongaJS" title="CongaJS Dashboard Home Page" />
+                                                </a>
+                                            </h1>
+                                            {% if token is defined and token %}
+                                                You are logged in as {{ token.resource.username }}.
+                                            {% endif %}
+                                        </div>
+                                    {% endblock header_content %}
+                                </header>
+                            {% endblock header %}
+                            {% block sidebar_content %}
+                                <form id="frmSearch" action="/_profiler/dashboard/search" method="GET">
+                                    <input type="text" placeholder="Search..." name="search" />
+                                    <input type="submit" value="GO" />
+                                </form>
+                                <div class="content">
+                                    {% if request is defined %}
+                                        <ul>
+                                            <li{% if collectorName is not defined or not collectorName %} class="selected"{% endif %}>
+                                                <a href="/_profiler/dashboard/request/{{ request.profilerId|url_encode }}">
+                                                    Request Overview
+                                                </a>
+                                            </li>
+                                            {% for key in navigation %}
+                                                <li{% if collectorName is defined and key == collectorName %} class="selected"{% endif %}>
+                                                    <a href="/_profiler/dashboard/request/{{ request.profilerId|url_encode }}/{{ key|url_encode }}">
+                                                        {# TODO: the collector icon #}
+                                                        {{ key }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            {% endblock sidebar_content %}
+                        </section>
+                    {% endblock sidebar %}
+                    <section id="content">
+                        {% block error_content %}
+                            {% if error is defined and error %}
+                                <div class="content error">
+                                    <p>{{ error }}</p>
+                                </div>
+                            {% endif %}
+                        {% endblock error_content %}
+
+                        {% block content_header_wrapper %}
+                            <header class="no-status">
+                                <div class="content">
+                                    {% block content_header '' %}
+                                </div>
+                            </header>
+                        {% endblock content_header_wrapper %}
+
+                        {% block content_wrapper %}
+                            <div class="content">
+                                {% block content '' %}
+                            </div>
+                        {% endblock content_wrapper %}
+                    </section>
+                {% endblock body %}
+            </div>
+
+            {% block footer %}
+                <footer>
+                    <div class="content">
+                        {% block footer_inner %}
+                            <p>&copy; {{ 'now'|date('Y') }} CongaJS. All Rights Reserved.</p>
+                        {% endblock footer_inner %}
+                    </div>
+                </footer>
+            {% endblock footer %}
+
+        </main>
+    {% endblock main %}
+
+</body>
+</html>

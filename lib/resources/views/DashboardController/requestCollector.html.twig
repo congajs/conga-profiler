@@ -1,0 +1,21 @@
+{% extends 'conga-profiler:request-layout.html.twig' %}
+
+{% block request_header %}
+    <h3>{{ collectorName }}</h3>
+{% endblock request_header %}
+
+{% block content %}
+    {% if template is defined and template and template|length > 0 %}
+        {% include template %}
+    {% else %}
+        <h3>No Template Defined For Collector</h3>
+        <p>
+            You need to return a valid template path from your getTemplate() data collector method if you want to
+            render something for this data collector.
+        </p>
+        <p>
+            If you want to remove the collector from dashboard, return false from your hasDashboard() data collector
+            method.
+        </p>
+    {% endif %}
+{% endblock content %}

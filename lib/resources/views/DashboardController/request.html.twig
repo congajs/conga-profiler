@@ -1,0 +1,23 @@
+{% extends 'conga-profiler:request-layout.html.twig' %}
+
+{% block request_header %}
+    <h3>Overview</h3>
+{% endblock request_header %}
+
+{% block content %}
+    <p>
+        {% if parent %}
+            This request has a parent request
+            <a href="/_profiler/dashboard/request/{{ parent.profilerId|url_encode }}">
+                {{ parent.profilerId }}
+            </a>
+        {% else %}
+            This request does not have a parent request.
+        {% endif %}
+    </p>
+
+    <p>This request has {{ children.length }} child request{% if children.length != 1 %}s{% endif %}.</p>
+
+    {% include 'conga-profiler:DashboardController/partials/requestTable' with {requests: children} %}
+
+{% endblock content %}

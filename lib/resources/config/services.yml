@@ -1,0 +1,48 @@
+imports:
+
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: stopwatch.yml }
+
+services:
+
+    profiler.app_listener:
+        constructor: conga-profiler:listener/AppListener
+        tags:
+            - { name: app.pre_middleware, method: preRegisterMiddleware }
+
+    profiler.kernel.listener:
+        constructor: conga-profiler:listener/KernelListener
+        tags:
+            - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 2 }
+            - { name: kernel.event, event: kernel.response, method: onResponse, priority: 2 }
+            - { name: kernel.event, event: kernel.error.response, priority: 1 }
+
+    profiler:
+        scope: request
+        constructor: conga-profiler:service/ProfilerService
+        arguments: ["@service_container"]
+
+    profiler.request:
+        scope: request
+        constructor: conga-profiler:service/ProfilerRequestService
+        arguments: ["@service_container"]
+
+    profiler.stat:
+        scope: request
+        constructor: conga-profiler:service/ProfilerStatService
+        arguments: ["@profiler", "@profiler.request"]
+
+    profiler.dashboard:
+        scope: request
+        constructor: conga-profiler:service/DashboardService
+        arguments: ["@service_container"]
+
+    # the data collector that grabs all of the configuration
+    # at the time of the request
+    profiler.config.collector:
+        scope: request
+        constructor: conga-profiler:collector/ConfigDataCollector
+        arguments: ["@service_container"]
+        tags:
+            - { name: profiler.data_collector, priority: -99 }

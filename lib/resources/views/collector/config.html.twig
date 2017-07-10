@@ -1,0 +1,22 @@
+<form id="frmSearchConfig" onsubmit="return false">
+    <input id="filter"
+           type="text"
+           placeholder="Filter..."
+           onkeyup="config.filter(this.value);"
+           onblur="config.filter(this.value);" />
+</form>
+
+<dl id="configList" class="config-list">
+    {% for key, value in data.configFlat %}
+        {% if '&#46;_' not in key and '._' not in key %}
+            <dt data-key="{{ key }}">{{ key }}</dt>
+            <dd data-key="{{ key }}">
+                {% if value %}
+                    {{ value }}
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </dd>
+        {% endif %}
+    {% endfor %}
+</dl>

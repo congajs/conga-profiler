@@ -1,0 +1,12 @@
+services:
+
+    # Security Authenticator #
+    profiler.security.authenticator:
+        constructor: conga-profiler:security/ProfilerAuthenticator
+        arguments: ["@service_container"]
+
+
+    # Security Provider #
+    profiler.security.provider:
+        constructor: conga-profiler:security/ProfilerProvider
+        arguments: ["@service_container"]

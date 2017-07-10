@@ -1,0 +1,239 @@
+* { margin:0; padding:0; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#profiler {
+    display: table;
+    background-color: #262626;
+    color: #fff;
+    width: 100%;
+    min-height: 100%;
+}
+
+.content {
+    padding: 30px;
+}
+
+#profiler .body-content {
+    color: #000;
+    background-color: #f8f8ff;
+    min-width: 100%;
+    min-height: 100%;
+    white-space: nowrap;
+}
+
+#sidebar {
+    display: table-cell;
+    width: 300px;
+    height: 768px;
+    background-color: #3cb371;
+}
+#sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+#sidebar > header {
+    background-color: #fff;
+    color: #000;
+    height: 115px;
+}
+#sidebar > header a {
+    padding: 0;
+}
+#sidebar > header img {
+    height: 50px;
+    border: 0;
+}
+#sidebar > header .content {
+    padding: 15px 30px;
+}
+#sidebar ul li {
+    list-style: none;
+    margin: 2px 0;
+    border-bottom: 1px solid #fff;
+}
+#sidebar ul li:first-child {
+    border-top: 1px solid #fff;
+    margin-top: 2px;
+}
+#sidebar ul li:hover a,
+#sidebar ul li.selected a {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+#content {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    height: 500px;
+    white-space: normal;
+}
+#content > .content {
+    padding: 15px;
+}
+
+#content > header {
+    width: 100%;
+    color: #fff;
+    min-height: 115px;
+}
+#content > header.no-status {
+    background-color: #3cb371;
+}
+#content > header .content {
+    padding: 30px 15px;
+}
+#content > header h2 .normal {
+    font-weight: normal;
+    font-size: 18px;
+}
+#content > header h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+#content > header h2 a:hover {
+    text-decoration: underline;
+}
+#content > header h3 {
+    padding-top: 5px;
+}
+
+#content > header.request > .content {
+    padding: 0 0 15px 0;
+}
+#content > header.request > .content h2 {
+    padding: 15px;
+}
+/* success */
+.status-200,
+.status-201,
+.status-202,
+.status-203,
+.status-204,
+.status-205,
+.status-206,
+.status-207,
+.status-208,
+.status-228 {
+    background-color: #000073;
+    color: #fff;
+}
+/* redirection */
+.status-300,
+.status-301,
+.status-302,
+.status-303,
+.status-304,
+.status-305,
+.status-306,
+.status-307,
+.status-308 {
+    background-color: darkcyan;
+    color: #fff;
+}
+/* client errors */
+.status-400,
+.status-402,
+.status-405,
+.status-406,
+.status-407,
+.status-408,
+.status-409,
+.status-410,
+.status-411,
+.status-412,
+.status-413,
+.status-414,
+.status-415,
+.status-416,
+.status-417,
+.status-418,
+.status-420,
+.status-421,
+.status-422,
+.status-423,
+.status-424,
+.status-426,
+.status-428,
+.status-431,
+.status-440,
+.status-444,
+.status-449,
+.status-450,
+.status-451,
+.status-495,
+.status-496,
+.status-497,
+.status-498,
+.status-499 {
+    background-color: darkmagenta;
+    color: #fff;
+}
+/* forbidden, unauthorized */
+.status-401,
+.status-403 {
+    background-color: darkorange;
+    color: #fff;
+}
+/* too many requests */
+.status-429 {
+    background-color: black;
+    color: #fff;
+}
+/* not found */
+.status-404 {
+    background-color: darkgoldenrod;
+    color: #fff;
+}
+/* error */
+.status-500,
+.status-501,
+.status-502,
+.status-503,
+.status-504,
+.status-505,
+.status-506,
+.status-507,
+.status-508,
+.status-508,
+.status-510,
+.status-511,
+.status-520,
+.status-521,
+.status-522,
+.status-523,
+.status-524,
+.status-525,
+.status-526,
+.status-527,
+.status-530,
+.status-598,
+.status-599 {
+    background-color: darkred;
+    color: #fff;
+}
+
+#content > header.request .request-header-content {
+    padding-left: 15px;
+}
+
+#profiler > footer {
+
+}
+
+table.request-table tr.request-row td {
+    cursor: pointer;
+    padding: 8px;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+table.request-table tr.request-row:hover td {
+    text-decoration: underline;
+}

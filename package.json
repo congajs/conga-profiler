@@ -1,0 +1,29 @@
+{
+  "name": "conga-profiler",
+  "version": "0.0.1",
+  "description": "Conga.js profiler bundle",
+  "directories": {
+    "test": "test"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/congajs/conga-profiler.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Anthony Matarazzo",
+    "email": "email@anthonymatarazzo.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "conga-framework": ">=0.0.28",
+    "conga-stopwatch": "*",
+    "pidusage": "1.0.4"
+  },
+  "devDependencies": {},
+  "readmeFilename": "README.md"
+}

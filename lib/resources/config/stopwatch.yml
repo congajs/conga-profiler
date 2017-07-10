@@ -1,0 +1,24 @@
+services:
+
+    # the stopwatch service lives and is used in the global and request container scopes
+    # each request has its own instance of the stopwatch service
+    profiler.stopwatch:
+        scope: request
+        constructor: conga-profiler:stopwatch/Stopwatch
+        arguments: ['__root__']
+
+    # the global collector picks up data between the start and finish time for each request
+    # from a small internal buffer that gets cleared periodically
+    profiler.stopwatch.global.collector:
+        constructor: conga-profiler:collector/stopwatch/GlobalDataCollector
+        arguments: ["@profiler.stopwatch", "@profiler.request"]
+        tags:
+            - { name: profiler.data_collector, priority: 3 }
+
+    # the request collector picks up all data for a single request
+    profiler.stopwatch.request.collector:
+        scope: request
+        constructor: conga-profiler:collector/stopwatch/DataCollector
+        arguments: ["@profiler.stopwatch", "@profiler.request"]
+        tags:
+            - { name: profiler.data_collector, priority: 3 }
