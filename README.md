@@ -20,8 +20,14 @@ overview
 ```
 profiler:
     
+    # optional, if omitted, true is used
+    # possible values are true, false, request
+    # request means, only enabled for matched requests
+    enabled: request
+    
     # optional, if ommitted, true is used
-    enabled: true
+    # specify whether to enable the dashboard
+    dashboard: true
     
     # required
     bass:
@@ -32,6 +38,7 @@ profiler:
         enabled: true
         delay_idle: 1000
         delay_request: 50
+        persist: request
     
     # optional
     security:

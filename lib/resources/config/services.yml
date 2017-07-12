@@ -38,6 +38,10 @@ services:
         constructor: conga-profiler:service/DashboardService
         arguments: ["@service_container"]
 
+    profiler.request.matcher:
+        constructor: conga-profiler:profiler/RequestMatcher
+        arguments: ["@service_container"]
+
     # the data collector that grabs all of the configuration
     # at the time of the request
     profiler.config.collector:
