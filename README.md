@@ -35,9 +35,19 @@ profiler:
     
     # optional, if omitted, true is used with defaults
     monitoring:
+        # whether or not to enable stat monitoring
+        # even if this is true, profiler.enabled must be set to either true or request or monitoring will not run 
         enabled: true
+        
+        # tells the ProfilerStatService how often to check for stats when there are no active requests
         delay_idle: 1000
+        
+        # tells the ProfilerStatService how often to check for stats when there is 1 or more active requests 
         delay_request: 50
+        
+        # tells the ProfilerStatService how to persist the stats - possible values are "all" and "request"  
+        # request meaning only persist the stats that occur during a request
+        # all meaning persist every stat
         persist: request
     
     # optional
