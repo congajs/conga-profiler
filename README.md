@@ -25,9 +25,13 @@ profiler:
     # request means, only enabled for matched requests
     enabled: request
     
-    # optional, if ommitted, true is used
+    # optional, if omitted, true is used
     # specify whether to enable the dashboard
     dashboard: true
+    
+    # optional, if omitted, true is used
+    # specify whether or not to collection configuration data on each request
+    collect_config: true
     
     # required
     bass:
