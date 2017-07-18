@@ -30,7 +30,7 @@ profiler:
     dashboard: true
     
     # optional, if omitted, true is used
-    # specify whether or not to collection configuration data on each request
+    # specify whether or not to collect configuration data on each request
     collect_config: true
     
     # required

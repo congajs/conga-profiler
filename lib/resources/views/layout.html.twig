@@ -40,7 +40,7 @@
                                                 </a>
                                             </h1>
                                             {% if token is defined and token %}
-                                                You are logged in as {{ token.resource.username }}.
+                                                You are logged in as {{ token.credentials.username }}.
                                             {% endif %}
                                         </div>
                                     {% endblock header_content %}
