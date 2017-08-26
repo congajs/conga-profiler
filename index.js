@@ -1,5 +1,5 @@
 /*
- * This file is part of the conga-security module.
+ * This file is part of the conga-profiler module.
  *
  * (c) Anthony Matarazzo <email@anthonymatarazzo.com>
  *
@@ -8,7 +8,7 @@
  */
 
 // framework libs
-const CongaStopwatch = require('conga-stopwatch');
+const CongaStopwatch = require('@conga/stopwatch');
 
 module.exports = {
 
