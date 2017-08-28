@@ -15,8 +15,7 @@ services:
         constructor: "@conga/framework-profiler:listener/KernelListener"
         tags:
             - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 2 }
-            - { name: kernel.event, event: kernel.response, method: onResponse, priority: 2 }
-            - { name: kernel.event, event: kernel.error.response, method: onErrorResponse, priority: 1 }
+            - { name: kernel.event, event: kernel.post.response, method: onResponse, priority: 2 }
 
     profiler:
         scope: request
