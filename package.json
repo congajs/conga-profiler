@@ -30,7 +30,11 @@
     "pidusage": "1.0.4"
   },
   "devDependencies": {
-    "@conga/framework": "^2.0.0"
+    "@conga/framework": "^2.0.0",
+    "bass-nedb": "latest",
+    "jasmine": "^2.6.0",
+    "request": "^2.81.0",
+    "should": "^11.2.1"
   },
   "readmeFilename": "README.md"
 }
