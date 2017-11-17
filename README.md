@@ -13,10 +13,6 @@ profiler:
     # specify whether to enable the dashboard
     dashboard: true
     
-    # optional, if omitted, true is used
-    # specify whether or not to collect configuration data on each request
-    collect_config: true
-    
     # required
     bass:
         manager: default.nedb
