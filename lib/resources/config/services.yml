@@ -40,12 +40,3 @@ services:
     profiler.request.matcher:
         constructor: "@conga/framework-profiler:profiler/RequestMatcher"
         arguments: ["@service_container"]
-
-    # the data collector that grabs all of the configuration
-    # at the time of the request
-    profiler.config.collector:
-        scope: request
-        constructor: "@conga/framework-profiler:collector/ConfigDataCollector"
-        arguments: ["@service_container"]
-        tags:
-            - { name: profiler.data_collector, priority: -99 }
