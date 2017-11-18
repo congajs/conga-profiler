@@ -1,0 +1,10 @@
+# this is the default configuration for the profiler
+profiler:
+
+    enabled: true
+
+    monitoring:
+        enabled: true
+        delay_idle: 1000
+        delay_request: 50
+        persist: request
