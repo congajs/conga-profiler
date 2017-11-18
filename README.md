@@ -9,10 +9,6 @@ profiler:
     # request means, only enabled for matched requests
     enabled: request
     
-    # optional, if omitted, true is used
-    # specify whether to enable the dashboard
-    dashboard: true
-    
     # required
     bass:
         manager: default.nedb
