@@ -49,4 +49,8 @@ profiler:
             route: ^/api/blah/some/component
         
         bar: '@service.id'
+    
+    # optional
+    # if you are working on the dashboard and want to profile the requests
+    profile_dashboard: true
 ```
