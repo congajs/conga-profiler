@@ -1,5 +1,5 @@
-conga-profiler
-==============
+@conga/framework-profiler
+=========================
 
 Add runtime profiling to your CongaJS application.
 
