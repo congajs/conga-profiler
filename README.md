@@ -1,6 +1,13 @@
 conga-profiler
 ==============
 
+Add runtime profiling to your CongaJS application.
+
+See the [documentation](/docs) for more information.
+
+Configuration
+-------------
+
 ```
 profiler:
     
