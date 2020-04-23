@@ -20,21 +20,21 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@conga/framework": "^2.0.0"
+    "@conga/framework": "~2.0.0"
   },
   "dependencies": {
-    "@conga/framework-security": "^2.0.0",
-    "@conga/framework-view": "^2.0.0",
-    "@conga/framework-view-twig": "^2.0.0",
-    "@conga/stopwatch": "^1.0.0",
-    "d3": "^4.10.0",
-    "pidusage": "1.0.4"
+    "@conga/framework-security": "~2.0.0",
+    "@conga/framework-view": "~2.0.0",
+    "@conga/framework-view-twig": "~2.0.0",
+    "@conga/stopwatch": "~1.0.0",
+    "d3": "^5.16.0",
+    "pidusage": "^2.0.18"
   },
   "devDependencies": {
-    "@conga/framework": "^2.0.0",
+    "@conga/framework": "~2.0.0",
     "bass-nedb": "latest",
     "jasmine": "^2.6.0",
-    "request": "^2.81.0",
+    "request": "^2.88.2",
     "should": "^11.2.1"
   },
   "readmeFilename": "README.md"
