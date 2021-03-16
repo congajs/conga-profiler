@@ -1,6 +1,6 @@
 {
   "name": "@conga/framework-profiler",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "Conga.js profiler bundle",
   "directories": {
     "test": "test"
@@ -20,10 +20,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@conga/framework": "~2.0.0"
+    "@conga/framework": "~2.1.2"
   },
   "dependencies": {
-    "@conga/framework-security": "~2.0.0",
+    "@conga/framework-security": "~2.1.1",
     "@conga/framework-view": "~2.0.0",
     "@conga/framework-view-twig": "~2.0.0",
     "@conga/stopwatch": "~1.0.0",
@@ -31,9 +31,9 @@
     "pidusage": "^2.0.18"
   },
   "devDependencies": {
-    "@conga/framework": "~2.0.0",
+    "@conga/framework": "~2.1.2",
     "bass-nedb": "latest",
-    "jasmine": "^2.6.0",
+    "jasmine": "^3.6.4",
     "request": "^2.88.2",
     "should": "^11.2.1"
   },
